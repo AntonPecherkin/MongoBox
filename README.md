@@ -204,22 +204,6 @@ Share document with the address at the time:
 
 <p align="center"><img src="images/sharedocument.png"></p>
 
-
-
-
-# Mobile application
-
-Requirements: '
-1. Android 2.0
-2. JDK Java 10.0
-
-Download Android Studio, JDK and Project and click on <img src="images/run.png"> to run the project.
-Launch Android application - button “cypher info” sending information to the server, uploading files to ipfs. Work is similar to work with web
- 
-<p align="center"><img src="images/button.png"></p>
-
-More information: [A hidden pixel](#a-hidden-pixel)
-
 # Finally
 
 **MongoBox** is a complete product for safe storage of your documents in one place and convenient use.
