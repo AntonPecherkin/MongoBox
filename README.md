@@ -141,7 +141,7 @@ Launch Android application - button “cypher info” sending information to the
 During the creation of the application, we used the following mongodb services: mongodb stitch, mongodb mobile.  Our application connects to the database, which is located on the stitch, unloads from there a string in base64 format.  On Android, it caches this line in order to quickly display this image in the future.  And translates from base64 format to image.  In the same way, the image is loaded into the database of the stitch.  When you click the save button, our document is saved locally on the device.  Also, a hidden pixel is attached to this picture, so that in case of leakage there is an opportunity to track the leakage location.
 
 More information: [A hidden pixel](#a-hidden-pixel)
- A hidden pixel
+# A hidden pixel
 
 We found one more problem and concentrate on this in our product, too.
 
