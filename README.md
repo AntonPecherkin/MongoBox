@@ -166,7 +166,7 @@ Web-version of project is available by link: http://livedemo.su:3000
 Example of Bob authorization: 
 
 <p align="center">
-<a href="http://livedemo.su:3000" target="_blank"><img src="images/cryptobox-web.png" width="600px"></a>
+<a href="http://livedemo.su:3000" target="_blank"><img src="images/mongobox-web.png" width="600px"></a>
 </p>
 
 
