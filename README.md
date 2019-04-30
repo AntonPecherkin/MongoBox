@@ -125,9 +125,27 @@ Next, we look at how each of the three components is used in our application and
 
 # MongoDB Atlas
 
+MongoDB Atlas - modern reliable database for storing files and convenient access to them from any device.
+
+Out-of-the-box protection of your most valuable data assets. Security features include TLS/SSL encryption, authentication, and authorization via SCRAM; network isolation and VPC Peering on AWS; IP whitelists; encrypted storage volumes; and the MongoDB Atlas console to manage database users.
+
+One-click, automated sharding for scale out, and zero-downtime scale up to larger instance types. You can provision TBs of database storage, all on high performance SSDs with dedicated I/O bandwidth.
+
+A minimum of three data nodes per replica set are automatically deployed across availability zones (AWS), fault domains (Azure), or zones (GCP) for continuous application uptime in the event of outages and routine maintenance.
+
 # MongoDB Stitch
 
+The serverless platform from MongoDB. Allows you to create infrastructure around the database and connect different devices into a single unit.
+
+Exposes the full power of working with documents in MongoDB and the MongoDB query language, directly from your web and mobile application frontend code. A powerful rules engine lets developers declare fine-grained security policies.
+
+Automatically synchronizes data between documents held locally in MongoDB Mobile and the backend database.
+
 # MongoDB Mobile
+
+MongoDB Mobile brings the power of MongoDB and the document model to your device.
+
+It complements the database architecture and allows you to quickly update information in the database from a mobile phone and load it.
 
 Requirements: '
 1. Android 2.0
@@ -141,6 +159,7 @@ Launch Android application - button “cypher info” sending information to the
 During the creation of the application, we used the following mongodb services: mongodb stitch, mongodb mobile.  Our application connects to the database, which is located on the stitch, unloads from there a string in base64 format.  On Android, it caches this line in order to quickly display this image in the future.  And translates from base64 format to image.  In the same way, the image is loaded into the database of the stitch.  When you click the save button, our document is saved locally on the device.  Also, a hidden pixel is attached to this picture, so that in case of leakage there is an opportunity to track the leakage location.
 
 More information: [A hidden pixel](#a-hidden-pixel)
+
 # A hidden pixel
 
 We found one more problem and concentrate on this in our product, too.
