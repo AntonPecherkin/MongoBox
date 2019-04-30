@@ -192,9 +192,6 @@ Share document with the address at the time:
 
 <p align="center"><img src="images/sharedocument.png"></p>
 
-<p align="center">
-<a href="http://livedemo.su:3000" target="_blank"><img src="images/mongobox-web.png" width="600px"></a>
-</p>
 
 
 
