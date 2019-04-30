@@ -129,7 +129,19 @@ Next, we look at how each of the three components is used in our application and
 
 # MongoDB Mobile
 
-# A hidden pixel
+Requirements: '
+1. Android 2.0
+2. JDK Java 10.0
+
+Download Android Studio, JDK and Project and click on <img src="images/run.png"> to run the project.
+Launch Android application - button “cypher info” sending information to the server, uploading files to ipfs. Work is similar to work with web
+ 
+<p align="center"><img src="images/button.png"></p>
+
+During the creation of the application, we used the following mongodb services: mongodb stitch, mongodb mobile.  Our application connects to the database, which is located on the stitch, unloads from there a string in base64 format.  On Android, it caches this line in order to quickly display this image in the future.  And translates from base64 format to image.  In the same way, the image is loaded into the database of the stitch.  When you click the save button, our document is saved locally on the device.  Also, a hidden pixel is attached to this picture, so that in case of leakage there is an opportunity to track the leakage location.
+
+More information: [A hidden pixel](#a-hidden-pixel)
+ A hidden pixel
 
 We found one more problem and concentrate on this in our product, too.
 
@@ -205,8 +217,6 @@ Download Android Studio, JDK and Project and click on <img src="images/run.png">
 Launch Android application - button “cypher info” sending information to the server, uploading files to ipfs. Work is similar to work with web
  
 <p align="center"><img src="images/button.png"></p>
-
-“Take picture with sign” button - encrypts images to check for whom the file was provided. According to this algorithm, the picture is encrypted using the method of visual cryptography (pixels are superimposed on each other). Each time, encryption takes a unique form - so that in the future it can be easily determined who posted the information about this picture (which of the companies that were granted access)
 
 More information: [A hidden pixel](#a-hidden-pixel)
 
