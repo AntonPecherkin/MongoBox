@@ -1,7 +1,7 @@
 # MongoBox
 MongoBox allows you to store copies of documents in one protected place with the ability to safely share them with the right person.
 
-[![N|Solid](images/Team1.png)](https://startblock.online)
+[![N|Solid](images/Team2.png)](https://startblock.online)
 
 ## Structure
 
@@ -208,4 +208,4 @@ We implemented all this within the framework of the Hackathon with the active in
 
 # Team
 
-[![N|Solid](images/Team1.png)](https://startblock.online)
+[![N|Solid](images/Team2.png)](https://startblock.online)
