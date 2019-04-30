@@ -1,0 +1,156 @@
+.nav-wrapper{
+    background: #6ab04c;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.green{
+    background: #6ab04c;
+}
+
+body{
+    background: #2f3640;
+}
+
+@media all and (min-width: 600px) {
+    .my-doc-top{
+        display:block; float:left; width:200px; margin:0 20px;
+    }
+    .my-doc-top{
+        padding: 5px;
+        width: 45%;
+    }
+    .my-doc-top{
+        padding: 5px;
+        width: 45%;
+    }
+
+    #add-button{
+        position: absolute;
+        bottom: 8%;
+        right: 19%;
+        width: 10%;
+    }
+    #add-button:hover, .blue-dark, .blue-dark:hover{
+        background: #6ab04c;
+    }
+    #add-file{
+        position: absolute;
+        top: 40%;
+        left: 34%;
+        width: 30%;
+    }
+    .logo {
+        position: absolute;
+        left: 3%;
+    }
+
+    #reg-panel-top{
+        position: absolute;
+        left: 32.5%;
+    }
+    #google{
+        position: absolute;
+        left: 18%;
+        top: 10%;
+    }
+    #face{
+        position: absolute;
+        left: 18%;
+        top: 10%;
+    }
+    .btn-sign{
+        margin: 3%;
+        text-align: center;
+        width: 70%;
+        left: 13%;
+    }
+    #share{
+        position: absolute;
+        top: 40%;
+        left: 34%;
+        width: 30%;
+    }
+}
+.collapsible{
+    background: #414D66;
+    border: none;
+}
+.collapsible-header{
+    background: #414D66;
+    font-size: 14px;
+    color: whitesmoke;
+    border: none;
+}
+.collapsible-body{
+    border: none;
+}
+.add-button{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 8%;
+    right: 10%;
+    height: 8%;
+    z-index: 1000;
+}
+.add-button:hover, .blue-dark, .blue-dark:hover{
+    background: #6ab04c;
+}
+.add-button-form{
+    position: fixed;
+    bottom: 5%;
+    right: -44%;
+    z-index: 1000;
+}
+.none{
+    visibility: hidden;
+}
+
+.blue-light{
+    background: #596275;
+}
+
+.log-btn{
+    font-size: 12px;
+    width: 100%;
+}
+.card-action{
+    height: 230px;
+}
+.reg-panel{
+    background: #414D66;
+}
+.reg-panel-position{
+    margin-top: 40px;
+}
+#upload-btn, #login, #password, #input-file-text, .text-color, #time, #public_key{
+    color: whitesmoke;
+}
+.no-doc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+.no-doc-text{
+    margin: 0;
+}
+
+#google{
+    position: absolute;
+    left: 3%;
+    top: 10%;
+}
+#face{
+    position: absolute;
+    left: 3%;
+    top: 10%;
+}
+.btn-sign{
+    margin: 3%;
+    text-align: center;
+    width: 92%;
+    left: 1%;
+}

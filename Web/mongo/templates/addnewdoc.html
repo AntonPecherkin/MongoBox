@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mongo</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <!--<img src="css/images/mongodb.png" class="logo" height="50" width="50" onclick="location='main.html'">-->
+        <img src="static/css/images/mongodblogo.png" class="logo" height="50" width="240" onclick="location='main.html'">
+    </div>
+</nav>
+<div class="container">
+    <form id="add-file" action="upload" method="post" enctype="multipart/form-data">
+        <div class="file-field input-field">
+            <div class="btn blue-dark waves-effect">
+                <span>File</span>
+                <input type="file" id="input-file" name="file">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" id="input-file-text">
+            </div>
+        </div>
+        <input type="submit" value="upload" class="btn right blue-dark waves-effect" id="upload-btn">
+    </form>
+</div>
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="static/js/materialize.min.js"></script>
+
+<!--<script>
+    navigator.getUserMedia(
+        // Настройки
+        {
+            video: true
+        },
+        // Колбэк для успешной операции
+        function(stream){
+
+            // Создаём объект для видео потока и
+            // запускаем его в HTLM элементе video.
+            video.src = window.URL.createObjectURL(stream);
+
+            // Воспроизводим видео.
+            video.play();
+
+        },
+        // Колбэк для не успешной операции
+        function(err){
+
+            // Наиболее частые ошибки — PermissionDenied и DevicesNotFound.
+            console.error(err);
+
+        }
+    );
+
+    function takeSnapshot(){
+
+        var hidden_canvas = document.querySelector('canvas'),
+            video = document.querySelector('video.camera_stream'),
+            image = document.querySelector('img.photo'),
+
+            // Получаем размер видео элемента.
+            width = video.videoWidth,
+            height = video.videoHeight,
+
+            // Объект для работы с canvas.
+            context = hidden_canvas.getContext('2d');
+
+
+        // Установка размеров canvas идентичных с video.
+        hidden_canvas.width = width;
+        hidden_canvas.height = height;
+
+        // Отрисовка текущего кадра с video в canvas.
+        context.drawImage(video, 0, 0, width, height);
+
+        // Преобразование кадра в изображение dataURL.
+        var imageDataURL = hidden_canvas.toDataURL('image/png');
+
+        // Помещение изображения в элемент img.
+        image.setAttribute('src', imageDataURL);
+
+    }
+</script>-->
+</body>
+</html>

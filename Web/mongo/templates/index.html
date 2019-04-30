@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mongo</title>
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
+    <script>
+      const client = stitch.Stitch.initializeDefaultAppClient('mongobox-wgqgm');
+
+      const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('MongoBox');
+
+      client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user =>
+        db.collection('Users').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
+      ).then(() =>
+        db.collection('Users').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
+      ).then(docs => {
+        console.log("Found docs", docs)
+        console.log("[MongoDB Stitch] Connected to Stitch")
+      }).catch(err => {
+      console.error(err)
+      });
+    </script>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <!--<img src="css/images/mongodb.png" class="logo" height="50" width="50">-->
+        <img src="static/css/images/mongodblogo.png" class="logo" height="50" width="240">
+    </div>
+</nav>
+<div class="container" id="reg-panel-top">
+    <div class="row reg-panel-position">
+        <div class="col s12 m6">
+            <div class="card darken-1 reg-panel">
+                <div class="card-content white-text">
+                    <span class="card-title center">Welcome! </span>
+                </div>
+                <form action="main" method="post">
+                <div class="card-action">
+                    <div class="input-field">
+                        <input id="login" type="text" name="login" class="validate">
+                        <label for="login" id="login-label">Login</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" type="text" class="validate ">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col s6">
+                        <button class="waves-effect waves-light btn blue-dark log-btn" type="submit">Log In</button>
+                    </div>
+                    <div class="col s6">
+                        <a class="waves-effect waves-light btn blue-dark log-btn">Sign Up</a>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="static/js/materialize.min.js"></script>
+</body>
+</html>

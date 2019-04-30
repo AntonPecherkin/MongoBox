@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="static/css/main.css"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mongo</title>
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script>
+    <script>
+      const client = stitch.Stitch.initializeDefaultAppClient('mongobox-wgqgm');
+
+      const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('MongoBox');
+
+      client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user =>
+        db.collection('Users').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
+      ).then(() =>
+        db.collection('Users').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
+      ).then(docs => {
+        console.log("Found docs", docs)
+        console.log("[MongoDB Stitch] Connected to Stitch")
+      }).catch(err => {
+      console.error(err)
+      });
+      const users = db.collection("Users");
+      const sharedocs = db.collection("ShareDocs");
+      //FLASK CONDITION
+      {% if (upload == 1)  %}
+        const newDoc = {
+          "Name": "{{login}}",
+          "Doc": "{{imageBase64}}",
+          "DocName": "{{filename}}"
+        };
+        
+        users.insertOne(newDoc)
+        .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+        .catch(err => console.error(`Failed to insert item: ${err}`));
+      {% endif %}
+     
+     {% if (share == 1)  %}
+        const newShare = {
+          "Owner": "{{login}}",
+          "Doc": "{{doc}}",
+          "DocName": "{{docname}}",
+          "User" : "{{user}}"
+        };
+
+        sharedocs.insertOne(newShare)
+        .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+        .catch(err => console.error(`Failed to insert item: ${err}`));
+      {% endif %}
+
+     
+     const query = { "Name": "{{login}}" };
+     docs = users.find(query).toArray().then(displayDocs);
+     
+/*    if (docs.length > 0) {
+       //docs = users.find(query).toArray().then(displayDocs);
+       document.getElementById('userdocs').style.display = 'block';
+       document.getElementById('no-userdocs').style.display = 'none';
+     } else {
+       document.getElementById('userdocs').style.display = 'none';
+       document.getElementById('no-userdocs').style.display = 'block';
+     }
+  */     
+     function displayDocs(docs) {
+     const docBody = document.getElementById("userdocs");
+        //const numResultsEl = document.getElementById("num-results");
+     const liRows = docs.map(doc => {
+     return `
+      <li>
+        <div class="collapsible-header">
+            <i class="material-icons">insert_photo</i>
+              ${doc.DocName}
+          </div>
+          <div class="collapsible-body">
+            <img class="responsive-img modal-trigger" src="${doc.Doc}"/>
+            <form action="share" method="post">
+	      <input type='hidden' name='Docname' value="${doc.DocName}">
+	      <input type='hidden' name='Owner' value="{{login}}">
+              <input type='hidden' name='Doc' value="${doc.Doc}">
+              <button class="waves-effect waves-light btn blue-dark log-btn" type="submit">Share this document</button>
+            </form>
+          </div>
+        </li>
+    `  ;
+       });
+       docBody.innerHTML = liRows.join("");
+    }
+
+    const query1 = { "User": "{{login}}" };
+    docs = sharedocs.find(query1).toArray().then(displayShareDocs);
+    /*if (docs.count() > 0) {
+      docs = sharedocs.find(query1).toArray().then(displayShareDocs);
+      document.getElementById('shareddocs').style.display = 'block';
+      document.getElementById('no-shareddocs').style.display = 'none';
+    } else {
+      document.getElementById('shareddocs').style.display = 'none';
+      document.getElementById('no-shareddocs').style.display = 'block';      
+    }*/
+
+    function displayShareDocs(docs) {
+    const docBody = document.getElementById("shareddocs");
+    const liRows = docs.map(doc => {
+    return `
+      <li>
+        <div class="collapsible-header">
+            <i class="material-icons">insert_photo</i>
+              ${doc.DocName} from ${doc.Owner}
+          </div>
+          <div class="collapsible-body">
+            <img class="responsive-img modal-trigger"  src="${doc.Doc}"/>
+          </div>
+        </li>
+    `  ;
+       });
+       docBody.innerHTML = liRows.join("");
+    }
+
+
+    </script>
+
+
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <!--<img src="css/images/mongodb.png" class="logo" height="50" width="50">-->
+        <img src="static/css/images/mongodblogo.png" class="logo" height="50" width="240">
+    </div>
+</nav>
+<div class="container">
+    <div class="my-doc-top">
+    <h5 class="center text-color">My Docs</h5>
+
+<!--        <div id="no-userdocs" class="collapsible no-doc" >
+            <p class="text-color no-doc-text">You din’t load any documents</p>
+        </div>
+-->
+    <ul id="userdocs" class="collapsible">
+    <!-- DATA FROM MONGODB -->
+    </ul>
+    </div>
+    <div class="my-doc-top">
+    <h5 class="center text-color">Shared Docs</h5>
+<!--        <div id="no-shareddocs" class="collapsible no-doc" >
+
+            <p class="text-color no-doc-text">You din’t receive any documents</p>
+        </div>
+-->
+    <ul id="shareddocs" class="collapsible shared">
+    <!-- DATA FROM MONGODB -->
+    </ul>
+    </div>
+
+    <!--<i class="material-icons file-path validate">add</i>-->
+</div>
+<a href="addnewdoc" class=" btn-large waves-effect add-button blue-dark" id="add-button"><i class="material-icons">add</i></a>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Share it?</h4>
+        <p>Do you want share this document?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="share" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="static/js/materialize.min.js"></script>
+</body>
+</html>
