@@ -12,7 +12,7 @@ MongoBox allows you to store copies of documents in one protected place with the
 <ol type="a" style="font-size: large;">
   <li> <a href="#user-application">User application</a><br />
   <li> <a href="#nucypher-encryption">NuCypher encryption</a><br />
-  <li> <a href="#ipfs">IPFS</a><br />
+  <li> <a href="#mongo-database">Mongo DataBase</a><br />
   <li> <a href="#a-hidden-pixel">A hidden pixel</a><br />
 </ol>
 <li> <a href="#installation">Installation</a><br />
@@ -41,13 +41,15 @@ Today there are the following problems:
 - Leaking documents into the network can be a disaster for everyone.
 
 Our product allows you to:
-- Keep copies of documents in one place and always at hand for the user
-- Be sure that the information is reliably protected and accessible only to the right people for a certain time. To do this, use NuCypher encryption, data storage in IPFS and the use of a hidden pixel for marking your own documents and protecting against copying on the network.
+- Keep copies of documents in one protected place and always at hand for the user
+- Storing an encrypted file in a Mongo Atlas database
+- Connect and display data in a web interface and mobile application for convenient use using Mongo Stitch and Mongo Mobile
+- Be sure that the information is reliably protected and accessible only to the right people for a certain time. To do this, use NuCypher encryption, data storage in Mongo DB Atlas and the use of a hidden pixel for marking your own documents and protecting against copying on the network.
 - Share documents with the right people for a certain time using NuCypher technology
 
 # Technical solution
 
-Our solution is a product implemented as a web application, as well as a mobile application for Android, so that it can be used at any convenient time.
+Our solution is a product implemented as a web application, as well as a mobile application for Android using Mongo Mobile, so that it can be used at any convenient time.
 
 <a href="https://youtu.be/0fELI3UzedY">Video-presentation of the Cryptobox</a>
 
@@ -60,17 +62,17 @@ The application is fully functional and you can try it in action right now at th
 
 We’ve created the infrastructure:
 
-* <a href="https://github.com/kanzeparov/NuCypher/tree/master/nucypher/nucypher/blockchain">A web application for user</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/nucypher/nucypher/blockchain">A web application for user</a>;
 
-* <a href="https://github.com/kanzeparov/NuCypher/tree/master/NewCApplication_Android">Mobile application for user</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/NewCApplication_Android">Mobile application for user</a>;
 
-* <a href="https://github.com/kanzeparov/NuCypher/tree/master/nucypher/examples/finnegans_wake_demo">NuCypher encryption and generation re-encryption keys for third-party applications</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/nucypher/examples/finnegans_wake_demo">NuCypher encryption and generation re-encryption keys for third-party applications</a>;
 
-* <a href="https://github.com/kanzeparov/NuCypher/tree/master/nucypher">IPFS is decentralized file system for save documents</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/master/nucypher">IPFS is decentralized file system for save documents</a>;
 
-* <a href="https://github.com/kanzeparov/NuCypher/tree/master/NewCApplication_Android/VCSecure">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/NewCApplication_Android/VCSecure">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
 
-In our application, we tried to take into account everything for the safe storage of documents and convenient use for file sharing between people. The application is a complete solution to the problem, plus the use of IPFS as a decentralized data repository and the creation of a secret pixel to identify files. The application is cross-platform.
+In our application, we tried to take into account everything for the safe storage of documents and convenient use for file sharing between people. The application is a complete solution to the problem, plus the use of an encrypted file in a Mongo Atlas database and the creation of a secret pixel to identify files. The application is cross-platform.
 This application is fully functional and can be used right now. We believe that this is a great result during the hackathon.
 
 Next, we consider the main blocks of our solution and their technical implementation.
@@ -86,11 +88,15 @@ You can use the web application simply by following the link:
 
 Detailed installation instructions are given in the <a href="#installation">“Installation”</a> section.
 
+The structure of our system is described below.
+
+<p align="center"><img src="images/structure.png"></p>
+
 Let's take a look at how the application works:
 
 1. First, we go to your personal account.
-2. In the personal account, we see all the documents available to us. Documents are stored using IPFS, thereby achieving complete decentralization.
-3. We can add a new document by uploading a file. When downloading the file is placed in a decentralized repository - IPFS. NuCypher encryption algorithm is applied to the file and it becomes accessible only to the user. The user identification algorithm is also applied to the file, a secret pixel is generated and embedded, which contains information about the user.
+2. In the personal account, we see all the documents available to us. Documents are stored using an encrypted file in a Mongo Atlas database. Documents are uploaded and displayed in a web application and a mobile application using components Mongo Stitch and Mongo Mobile.
+3. We can add a new document by uploading a file. When downloading the file is placed in the Mongo DB Atlas. NuCypher encryption algorithm is applied to the file and it becomes accessible only to the user. The user identification algorithm is also applied to the file, a secret pixel is generated and embedded, which contains information about the user.
 4. We can share any document by specifying the recipient's public key and the number of hours to access the document. Using NuCypher technology, the specified user is granted temporary access to the document.
 
 You can watch a video demonstration of the product: 
@@ -109,21 +115,23 @@ NuCypher leverages the power of proxy re-encryption to bring private data to pub
 2. Ursula, a miner, receives the re-encryption keys and stands ready to re-key data. She provides this service in exchange for payment in fees and block rewards. The NuCypher network and the storage layer never have access to Alice's plaintext data.
 3. Bob, a valid recipient, sends an access request to the NuCypher network. If a valid re-encryption key exists and specified conditions are met, the data is re-keyed to his public key and he is able to decrypt with his private key.
 
-# IPFS
+# Mongo DataBase
 
-IPFS is a distributed system for storing and accessing files, websites, applications, and data, so, we use this technology as a data storage in our project. It’s a peer-to-peer (p2p) filesharing system that aims to fundamentally change the way information is distributed across & beyond the globe. IPFS consists of several innovations in communication protocols and distributed systems that have been combined to produce a file system like no other.
+In our product we use 3 components of the software product Mongo DB: MongoDB Atlas, MongoDB Stitch, MongoDB Mobile. We use the standard mix and interaction of these products proposed by Mongo and shown in the figure below.
 
-For install IPFS on local machine you need:
-1. Download <a href="https://dist.ipfs.io/#go-ipfs" target="_blank">IPFS for your platform</a>
-2. tar xvfz go-ipfs.tar.gz
-3. cd go-ipfs
-4. ./install.sh
+<p align="center"><img src="images/mongo_structure.png"></p>
 
-For run:
-1. ipfs init
-2. ipfs daemon
+Next, we look at how each of the three components is used in our application and describe in more detail.
+
+# MongoDB Atlas
+
+# MongoDB Stitch
+
+# MongoDB Mobile
 
 # A hidden pixel
+
+We found one more problem and concentrate on this in our product, too.
 
 Problem: when opening access to a particular file, there is often a problem with the leakage of information into the network. For example, we provide access to a passport, a fraudulent organization, and it can put these documents on some other resource. To combat this problem, we can use visual encryption, encrypting in the image information about to whom we provide this information, in case of leakage, we can easily determine who the data were laid out.
 
@@ -144,7 +152,7 @@ Mysteriously, however, if the two grids are overlaid correctly, at just the righ
 Requirements:
 1. Python >=3.6
 2. Flask
-3. Ipfs 
+3. Mongo DB
 
 For local installation you need to run following commands (from nucypher directory): 
 1. pipenv install --dev --three --skip-lock --pre
@@ -187,21 +195,22 @@ More information: [A hidden pixel](#a-hidden-pixel)
 
 # Finally
 
-**CryptoBox** is a complete product for safe storage of your documents in one place and convenient use.
+**MongoBox** is a complete product for safe storage of your documents in one place and convenient use.
 
 <a href="https://youtu.be/0fELI3UzedY">Video-presentation of the Cryptobox</a>
 
-The use of IPFS technology makes it possible to decentralize the data warehouse. A secret pixel will allow you to check the originality of the document and find the document on the network, which prevents copying and distribution of documents.
+Using the structure of MongoDB applications allows you to simply set up an ecosystem of reliable storage and access to data. A secret pixel will allow you to check the originality of the document and find the document on the network, which prevents copying and distribution of documents.
 
 The full structural scheme of the proposed solution is presented below.
 
-![N|Solid](images/Structure.png)
+![N|Solid](images/structure.png)
 
 During this hackathon:
 
 - We have created a fully working user application for the safe storage and sharing of documents. The application is implemented in the both form of web and mobile versions.
+- Thanks to the product, MongoDB simply set up the data storage architecture, its display in the web application and mobile application
 - Thanks to NuCypher re-encryption has the opportunity to share any document from the list with the desired user for the required amount of time.
-- For reliable document storage, the best method of decentralized file storage at the moment is used - IPFS.
+- For reliable document storage, the best method of file storage is used - MongoDB Atlas.
 - In order to protect copies of documents and distribute them online, we studied and applied the method of marking a file by stitching a hidden pixel containing information about the owner of the file. This method is already used to protect against copying documents.
 
 We implemented all this within the framework of the Hackathon with the active interaction of the whole team!
