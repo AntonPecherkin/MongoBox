@@ -171,11 +171,31 @@ Web-version of project is available by link: http://livedemo.su:3000
 2. Bob and another names authorization
 
 <p>With Alice authorization you can upload files and share them for another users. With Bob authorization you can only read files, which were shared by Alice.</p> 
-Example of Bob authorization: 
+
+Example of authorization: 
+
+<p align="center"><img src="images/login.png"></p>
+
+Private office:
+
+<p align="center"><img src="images/privateoffice.png"></p>
+
+Add document (from PC or camera):
+
+<p align="center"><img src="images/adddocument.png"></p>
+
+My and shared documents:
+
+<p align="center"><img src="images/mongobox-web.png"></p>
+
+Share document with the address at the time:
+
+<p align="center"><img src="images/sharedocument.png"></p>
 
 <p align="center">
 <a href="http://livedemo.su:3000" target="_blank"><img src="images/mongobox-web.png" width="600px"></a>
 </p>
+
 
 
 # Mobile application
