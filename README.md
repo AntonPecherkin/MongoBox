@@ -51,7 +51,7 @@ Our product allows you to:
 
 Our solution is a product implemented as a web application, as well as a mobile application for Android using Mongo Mobile, so that it can be used at any convenient time.
 
-<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the Cryptobox</a>
+<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the MongoBox</a>
 
 
 The application is fully functional and you can try it in action right now at the link: 
@@ -62,15 +62,15 @@ The application is fully functional and you can try it in action right now at th
 
 We’ve created the infrastructure:
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/nucypher/nucypher/blockchain">A web application for user</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/Web/mongo">A web application for user</a>;
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/NewCApplication_Android">Mobile application for user</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/MongoDb_android">Mobile application for user and Mongo Mobile</a>;
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/nucypher/examples/finnegans_wake_demo">NuCypher encryption and generation re-encryption keys for third-party applications</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/Web/mongo">NuCypher encryption and generation re-encryption keys for third-party applications</a>;
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/master/nucypher">IPFS is decentralized file system for save documents</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/Web/mongo">Storing an encrypted file in a Mongo Atlas database</a>;
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/NewCApplication_Android/VCSecure">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/MongoDb_android">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
 
 In our application, we tried to take into account everything for the safe storage of documents and convenient use for file sharing between people. The application is a complete solution to the problem, plus the use of an encrypted file in a Mongo Atlas database and the creation of a secret pixel to identify files. The application is cross-platform.
 This application is fully functional and can be used right now. We believe that this is a great result during the hackathon.
@@ -227,7 +227,7 @@ Share document with the address at the time:
 
 **MongoBox** is a complete product for safe storage of your documents in one place and convenient use.
 
-<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the Cryptobox</a>
+<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the MongoBox</a>
 
 Using the structure of MongoDB applications allows you to simply set up an ecosystem of reliable storage and access to data. A secret pixel will allow you to check the originality of the document and find the document on the network, which prevents copying and distribution of documents.
 
