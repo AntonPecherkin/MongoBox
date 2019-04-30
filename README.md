@@ -30,7 +30,9 @@ We are team **StartBlock** and we have indroduce our product, that we have imple
 
 We introduce the **MongoBox** product - storing copies of documents in one protected place, with the ability to share them with the right person in a safe way using Mongo Data Base and NuCypher technology .
 
-<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the MongoBox</a>
+<a href="https://youtu.be/7cIWS-rW-fU">Video-presentation of the MongoBox</a>
+
+<a href="http://livedemo.su:3000">Web-application of the MongoBox</a>
 
 ## Problems and solution
 
@@ -51,7 +53,7 @@ Our product allows you to:
 
 Our solution is a product implemented as a web application, as well as a mobile application for Android using Mongo Mobile, so that it can be used at any convenient time.
 
-<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the MongoBox</a>
+<a href="https://youtu.be/7cIWS-rW-fU">Video-presentation of the MongoBox</a>
 
 
 The application is fully functional and you can try it in action right now at the link: 
@@ -101,7 +103,7 @@ Let's take a look at how the application works:
 
 You can watch a video demonstration of the product: 
 
-https://youtu.be/0fELI3UzedY
+https://youtu.be/7cIWS-rW-fU
 
 # NuCypher encryption
 
@@ -180,28 +182,28 @@ Mysteriously, however, if the two grids are overlaid correctly, at just the righ
 <p align="center"><img src="images/im2.png"></p>
 
 # Installation
+
 Requirements:
 1. Python >=3.6
 2. Flask
-3. Mongo DB
+3. NuCypher library
 
-For local installation you need to run following commands (from nucypher directory): 
+For local installation and using nycypher encrypt functionality you need to run following commands (from nucypher directory): 
 1. pipenv install --dev --three --skip-lock --pre
 2. pipenv install flask
-3. pipenv install ipfsapi
-4. pipenv run python3.7 run examples/finnegans-wake-demo/finnegans-wake-concise-demo.py
+4. pipenv run python3.7 run web/mongo/app.py
 
-For the application to work correctly, the ipfs daemon must be running (cmd ipfs daemon). 
+For the application to work correctly, the NuCypher library must be installed! (https://github.com/nucypher/nucypher).
 
 # Web application
 
 Web-version of project is available by link: http://livedemo.su:3000
 <p>You can authorize without password only by login. We implemented to cases:</p>
 
-1. Alice authorization 
-2. Bob and another names authorization
+If you have some files in MongoDB you will see them after authorization. In other cases you can load your own data in your account. After that you can share them for another user. 
 
-<p>With Alice authorization you can upload files and share them for another users. With Bob authorization you can only read files, which were shared by Alice.</p> 
+Try to login with name "Test" and see his documents. After that login with your name (email) without password and upload .jpg.
+After that reload the page and you will see your first document, which you can share. Then you can share this document for user "Test" or another one. Later, login with "Test" name again and you will see your shared document!
 
 Example of authorization: 
 
@@ -227,7 +229,9 @@ Share document with the address at the time:
 
 **MongoBox** is a complete product for safe storage of your documents in one place and convenient use.
 
-<a href="https://youtu.be/0fELI3UzedY">Video-presentation of the MongoBox</a>
+<a href="https://youtu.be/7cIWS-rW-fU">Video-presentation of the MongoBox</a>
+
+<a href="http://livedemo.su:3000">Web-application of the MongoBox</a>
 
 Using the structure of MongoDB applications allows you to simply set up an ecosystem of reliable storage and access to data. A secret pixel will allow you to check the originality of the document and find the document on the network, which prevents copying and distribution of documents.
 
