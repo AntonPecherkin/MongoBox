@@ -72,7 +72,7 @@ We’ve created the infrastructure:
 
 * <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/Web/mongo">Storing an encrypted file in a Mongo Atlas database</a>;
 
-* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/MongoDb_android">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
+* <a href="https://github.com/AntonPecherkin/MongoBox/tree/master/VCWithoutPixelExpansion">Creation a hidden pixel to mark your own documents and protect against online copying</a>;
 
 In our application, we tried to take into account everything for the safe storage of documents and convenient use for file sharing between people. The application is a complete solution to the problem, plus the use of an encrypted file in a Mongo Atlas database and the creation of a secret pixel to identify files. The application is cross-platform.
 This application is fully functional and can be used right now. We believe that this is a great result during the hackathon.
